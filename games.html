@@ -1,0 +1,76 @@
+<html>
+  <style>
+    body{
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+  <body>
+
+    <h1>List of Games</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th><u>Games</u></th>
+          <th><u>Developer</u></th>
+          <th><u>Price</u></th>
+          <th><u>Release Date</u></th>
+	  <th><u>ESRB Rating</u></th>
+	  <th><u>IGN Rating</u></th>
+	</tr>
+      </thead>
+      <tbody>
+        {% for n in data %}
+        <tr>
+	  <th>{{n[0]}}</th>
+	  <th>{{n[1]}}</th>
+	  <th>${{n[2]}}</th>
+	  <th>{{n[3]}}</th>
+	  <th>{{n[4]}}</th>
+	  <th>{{n[5]}}</th>
+	</tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+      </tfoot>
+    </table>
+
+  <form action="/games" method="POST">
+    <p>Find Games By Developer</p>
+    <p><input type="checkbox" name="devElectronic Arts" value="Electronic Arts"/> Electronic Arts</p>
+    <p><input type="checkbox" name="devUbisoft" value="Ubisoft"/> Ubisoft</p>
+    <p><input type="checkbox" name="devBethesda Softworks" value="Bethesda Softworks"/> Bethesda Softworks</p>
+    <p><input type="checkbox" name="devRockstar" value="Rockstar"/> Rockstar</p>
+    <p><input type="checkbox" name="devNaughty Dog" value="Naughty Dog"/> Naughty Dog</p>
+    <p><input type="checkbox" name="devRocksteady" value="Rocksteady"/> Rocksteady</p>
+    <p><input type="checkbox" name="devTreyarch" value="Treyarch"/> Treyarch</p>
+    <p><input type="checkbox" name="devInfinity Ward" value="Infinity Ward"/> Infinity Ward</p>
+    <p><input type="checkbox" name="devSledgehammer Games" value="Sledgehammer Games"/> Sledgehammer Games</p>
+    <p><input type="checkbox" name="dev2K Games" value="2K Games"/> 2K Games</p>
+    <p>Find Games By Console</p>
+    <p><input type="checkbox" name="conPlayStation 2" value="PlayStation 2"/> Playstation 2</p>
+    <p><input type="checkbox" name="conPlayStation 3" value="PlayStation 3"/> Playstation 3</p>
+    <p><input type="checkbox" name="conPlayStation 4" value="PlayStation 4"/> Playstation 4</p>
+    <p><input type="checkbox" name="conXbox360" value="Xbox360"/>Xbox360</p>
+    <p><input type="checkbox" name="conXbox One" value="Xbox One"/>Xbox One</p>
+    <p><input type="checkbox" name="conWii" value="Wii"/>Wii</p>
+    <p><input type="checkbox" name="conWiiU" value="WiiU"/>WiiU</p>
+    <p><input type="checkbox" name="conGameCube" value="GameCube"/>GameCube</p>
+    <p><input type="checkbox" name="conPC" value="PC"/>PC</p>
+    <p><input type="checkbox" name="conPlayStation Vita" value="PlayStation Vita"/> Playstation Vita</p>  
+    <p>Find Games by Price</p>
+    <select name="Price">
+      <option value="NA">No price constraint</option>
+      <option value="40">$40 or below</option>
+      <option value="30">$30 or below</option>
+      <option value="20">$20 or below</option>
+   </select>
+   <p><input type="submit" name="ksubmit" value="Submit" /></p>
+</form>
+
+  <p><a href="/">Go Home</a></p>
+  </body>
+
+</html>
